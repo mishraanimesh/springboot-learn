@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 #
-# Script that sends a docker image to AWS ECR
-#
 # Animesh <animesh.mishra@payu.in>
 # Pass Variable a aws repor using URL
-# 068794074199.dkr.ecr.ap-south-1.amazonaws.com/$aws_repository
+# $$$$$$$$.dkr.ecr.ap-south-1.amazonaws.com/$aws_repository
 #
 
 set -e
