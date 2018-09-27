@@ -20,10 +20,6 @@ if [ -z "$aws_profile" ]; then
     aws_profile=default
 fi
 
-if [ "$#" -lt 1 ]; then
-    echo "usage $0 docker-image (aws-credentials-file)"
-    exit 1
-fi
 
 if [ "$#" -eq 2 ]; then
     AWS_SHARED_CREDENTIALS_FILE=$2
@@ -36,8 +32,7 @@ AWS="/usr/bin/aws --profile $aws_profile"
 DOCKER_IMAGE=$1
 
 # Step 1 Get login  snippet from AWS
-DOCKER_LOGIN=$($AWS ecr get-login --no-include-email)
-
+DOCKER_LOGIN=$(aws ecr get-login)
 # Disable output as we have passwords here
 set +x
 
