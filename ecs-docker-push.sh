@@ -32,7 +32,7 @@ AWS="/usr/bin/aws --profile $aws_profile"
 DOCKER_IMAGE=$1
 
 # Step 1 Get login  snippet from AWS
-DOCKER_LOGIN=$(aws ecr get-login)
+DOCKER_LOGIN=$($AWS ecr get-login)
 # Disable output as we have passwords here
 set +x
 
