@@ -43,7 +43,7 @@ eval $DOCKER_LOGIN
 docker tag $DOCKER_IMAGE $aws_repository
 
 # Tag with Maven build release so we can track it
-docker tag $DOCKER_IMAGE $aws_repository:$JOB_NAME.$BUILD_NUMBER
+docker tag $DOCKER_IMAGE $aws_repository/$JOB_NAME.$BUILD_NUMBER
 
 # Step 4 Push docker image to ECR
 docker push $aws_repository
