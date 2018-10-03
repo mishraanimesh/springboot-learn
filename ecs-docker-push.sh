@@ -39,13 +39,15 @@ set +x
 # Step 2 Execute docker login against AWS.
 eval $DOCKER_LOGIN
 
+docker build -t $DOCKER_IMAGE:$JOB_NAME.$BUILD_NUMBER.
+
 # Step 3 Tag image with AWS Specifics
-docker tag $DOCKER_IMAGE $aws_repository/$JOB_NAME.$BUILD_NUMBER
+docker tag $DOCKER_IMAGE $aws_repository/$DOCKER_IMAGE:$JOB_NAME.$BUILD_NUMBER
 
 # Tag with Maven build release so we can track it
-docker tag $DOCKER_IMAGE $aws_repository/$JOB_NAME.$BUILD_NUMBER
+docker tag $DOCKER_IMAGE $aws_repository/$DOCKER_IMAGE:$JOB_NAME.$BUILD_NUMBER
 
 # Step 4 Push docker image to ECR
-docker push  $aws_repository/$JOB_NAME.$BUILD_NUMBER
+docker push  $aws_repository/$DOCKER_IMAGE:$JOB_NAME.$BUILD_NUMBER
 
 
