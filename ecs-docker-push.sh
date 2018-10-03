@@ -39,7 +39,7 @@ set +x
 # Step 2 Execute docker login against AWS.
 eval $DOCKER_LOGIN
 
-docker build -t $DOCKER_IMAGE:$JOB_NAME.$BUILD_NUMBER.
+docker build -t $DOCKER_IMAGE:$JOB_NAME.$BUILD_NUMBER .
 
 # Step 3 Tag image with AWS Specifics
 docker tag $DOCKER_IMAGE $aws_repository/$DOCKER_IMAGE:$JOB_NAME.$BUILD_NUMBER
